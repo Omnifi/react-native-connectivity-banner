@@ -86,7 +86,7 @@ class ConnectivityBanner extends React.Component {
     Animated.timing(
       this.state.fadeAnim,
       {
-        toValue: height > 811 ? 73 : 50,
+        toValue:  40,
         duration: 300
       }
     ).start();
@@ -127,24 +127,23 @@ class ConnectivityBanner extends React.Component {
 
 const styles = StyleSheet.create({
   bannerContainer: {
-    backgroundColor :'rgba(181, 36, 36, 1)',
+    backgroundColor :'#d9594c',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
     width,
   },
   absolute: {
-    position: 'absolute',
-    top: height >= 812 ? 30 : 0,
+    alignSelf: 'flex-end'
   },
   orangeBackground: {
-    backgroundColor: 'orange'
+    backgroundColor: '#f9a03f'
   },
   bannerText: {
     color: '#fff'
   },
   show: {
-    paddingTop: height > 811 ? 30 : 10
+    paddingVertical: 4
   }
 })
 
