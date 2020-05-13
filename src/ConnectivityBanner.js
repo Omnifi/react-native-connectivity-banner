@@ -86,7 +86,7 @@ class ConnectivityBanner extends React.Component {
     Animated.timing(
       this.state.fadeAnim,
       {
-        toValue:  40,
+        toValue:  40 + this.props.inset*0.6 || 0,
         duration: 300
       }
     ).start();
@@ -114,10 +114,11 @@ class ConnectivityBanner extends React.Component {
           styles.bannerContainer, 
           (isConnected && lowConnectivity) && styles.orangeBackground, 
           this.props.styleOverride ? this.props.styleOverride : styles.absolute,
-          show && styles.show
+          show && styles.show,
+          (this.props.inset > 0) && {alignItems:'flex-start'}
         ]}
       >
-        <Text style={styles.bannerText}>
+        <Text style={[styles.bannerText, (this.props.inset > 0) && {paddingTop:10}]}>
           {status}
         </Text>
       </Animated.View>
